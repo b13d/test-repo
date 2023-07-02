@@ -1,3 +1,5 @@
+'use client'
+
 import axios from "axios";
 import Link from "next/link";
 import moment from "moment";
@@ -26,6 +28,8 @@ export default async function getData() {
   });
 
   let resArr: string[] = arr.sort().slice(400, 500).reverse();
+
+  console.log(resArr);
 
   return resArr.map(async (value, index) => {
     let tempAxios = await axios.get<IItems>(
